@@ -1,4 +1,11 @@
 const MathsButton = ({ yesLabel, noLabel, onClick }) => {
+  const handleYesClick = () => {
+    onClick('YES')
+  }
+  const handleNoClick = () => {
+    onClick('NO')
+  }
+
   return (
     <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
       <div
@@ -7,13 +14,13 @@ const MathsButton = ({ yesLabel, noLabel, onClick }) => {
       >
         <button
           className="outline-noe px-4 py-1 rounded-full shadow-lg text-black  bg-green-500 "
-          onClick={onClick}
+          onClick={handleYesClick}
         >
           {yesLabel}
         </button>
         <button
           className="outline-noe px-4 py-1 rounded-full shadow-lg text-black bg-red-500"
-          onClick={onClick}
+          onClick={handleNoClick}
         >
           {noLabel}
         </button>
