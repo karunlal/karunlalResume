@@ -17,7 +17,7 @@ const Skills = () => {
   ]
 
   return (
-    <div>
+    <div className="flex flex-col gap-1 my-4">
       <h2 className="text-3xl font-bold font-serif mb-8 text-center">Skills</h2>
       {skills.map((skill) => (
         <div className="mb-8 text-center" key={skill.id}>

@@ -1,5 +1,6 @@
 import React from 'react'
-import Button from './Button.jsx'
+import Button from '../components/Button.jsx'
+import MathsButton from './MathsButton.jsx'
 import {
   one,
   two,
@@ -8,7 +9,7 @@ import {
   sixteenth,
   thirtytwoth,
   sixtyforth,
-} from './Data.jsx'
+} from '../components/Data.jsx'
 
 const MathsPuzzle = () => {
   // Split the 'one' array into chunks of numbers with less than 20 digits
@@ -18,19 +19,25 @@ const MathsPuzzle = () => {
     oneChunks.push(one.slice(i, i + chunkSize))
   }
 
+  const handleClick = () => {
+    console.log('hi')
+  }
+
   return (
     <div>
       {oneChunks.map((chunk, index) => (
-        <div key={index}>
+        <div key={index} className="px-10">
           {chunk.map((num, idx) => (
-            <Button key={idx}>{num}</Button>
+            <button
+              className="px-5 py-6 font-bold font-serif text-4xl"
+              key={idx}
+            >
+              {num}
+            </button>
           ))}
         </div>
       ))}
-      <div>
-        <button className="text-left">YES</button>
-        <button className="text-right">NO</button>
-      </div>
+      <MathsButton yesLabel="YES" noLabel="NO" onClick={handleClick} />
     </div>
   )
 }

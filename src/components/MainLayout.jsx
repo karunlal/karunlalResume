@@ -4,7 +4,7 @@ import Skills from './Skills'
 import Education from './Education'
 import Projects from './Projects'
 import Button from './Button'
-import MathsPuzzle from './MathsPuzzle'
+import MathsPuzzle from '../puzzle/MathsPuzzle'
 
 const MainLayout = () => {
   const mainOptions = [
