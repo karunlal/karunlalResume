@@ -2,7 +2,7 @@ import photo from '../assets/react.svg'
 
 const Profile = () => {
   return (
-    <p className="flex flex-col gap-1 my-4">
+    <div className="flex flex-col gap-1 my-4">
       <label className="text-sm font-bold uppercase text-stone-500">
         Profile
       </label>
@@ -18,7 +18,7 @@ const Profile = () => {
           convallis lacus pharetra.
         </div>
       </div>
-    </p>
+    </div>
   )
 }
 

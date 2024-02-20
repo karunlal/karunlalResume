@@ -8,19 +8,19 @@ import css from '../assets/css-icon.png'
 
 const Skills = () => {
   const skills = [
-    { icon: reactLogo, name: 'React' },
-    { icon: tailwind, name: 'TailwindCSS' },
-    { icon: github, name: 'github' },
-    { icon: html, name: 'HTML' },
-    { icon: js, name: 'JavaScript' },
-    { icon: css, name: 'CSS' },
+    { id: 1, icon: reactLogo, name: 'React' },
+    { id: 2, icon: tailwind, name: 'TailwindCSS' },
+    { id: 3, icon: github, name: 'github' },
+    { id: 4, icon: html, name: 'HTML' },
+    { id: 5, icon: js, name: 'JavaScript' },
+    { id: 6, icon: css, name: 'CSS' },
   ]
 
   return (
     <div>
       <h2 className="text-3xl font-bold font-serif mb-8 text-center">Skills</h2>
       {skills.map((skill) => (
-        <div className="mb-8 text-center" key={skill}>
+        <div className="mb-8 text-center" key={skill.id}>
           <ul className="font-mono">
             <Button>
               <img
