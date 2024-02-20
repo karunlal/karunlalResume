@@ -23,8 +23,8 @@ const MathsPuzzle = () => {
     sixtyforth,
   ])
   const [boxNum, setBoxNum] = useState(0)
-  const handleClick = () => {
-    console.log()
+  const handleClick = (buttonLabel, firstNum) => {
+    console.log(buttonLabel, firstNum)
     {
       if (boxNum < 6) setBoxNum(boxNum + 1)
     }
@@ -52,10 +52,22 @@ const MathsPuzzle = () => {
               {num}
             </button>
           ))}
+          <MathsButton
+            yesLabel="YES"
+            noLabel="NO"
+            onClick={(label) => handleClick(label, boxNum[0])}
+          />
         </div>
       ))}
-      <MathsButton yesLabel="YES" noLabel="NO" onClick={handleClick} />
-      <button onClick={handleReset}>RESET</button>
+
+      <div className="fixed flex flex-wrap justify-center bottom-3 inset-x-0 px-2">
+        <button
+          className="outline-noe px-4 py-1 rounded-full shadow-lg text-white bg-purple-600"
+          onClick={handleReset}
+        >
+          RESET
+        </button>
+      </div>
     </div>
   )
 }
