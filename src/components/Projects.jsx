@@ -1,3 +1,4 @@
+import MathsPuzzle from '../puzzle/MathsPuzzle'
 const Projects = () => {
   return (
     <div className="flex flex-col gap-1 my-4">
@@ -5,9 +6,7 @@ const Projects = () => {
         Projects
       </h2>
       <ul>
-        <li>Project 1</li>
-        <li>Project 2</li>
-        <li>Project 3</li>
+        <MathsPuzzle />
       </ul>
     </div>
   )
