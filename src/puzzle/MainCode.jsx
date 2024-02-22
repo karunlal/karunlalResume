@@ -13,7 +13,16 @@ import {
 } from '../components/Data.jsx'
 
 const MainCode = () => {
-  const box = [one, two, fourth, eighth, sixteenth, thirtytwoth, sixtyforth]
+  const box = [
+    { name: one, color: 'yellow' },
+    { name: two, color: 'green' },
+    { name: fourth, color: 'red' },
+    { name: eighth, color: 'purple' },
+    { name: sixteenth, color: 'pink' },
+    { name: thirtytwoth, color: 'blue' },
+    { name: sixtyforth, color: 'cyan' },
+  ]
+
   const [boxNum, setBoxNum] = useState(0)
   const [countBox, setCountBox] = useState(0)
   const [count, setCount] = useState(0)
@@ -43,25 +52,31 @@ const MainCode = () => {
 
   console.log('countBox is ', countBox)
   //   const filteredArray = box[boxNum].filter((element, index) => index === 0)
-  const firstElement = box[boxNum][0]
+  const firstElement = box[boxNum].name[0]
 
   return (
     <div className="container mx-auto py-10">
-      <h1 className="text-justify  font-bold"></h1>
+      <h1 className="text-justify  font-bold">BOX NUMBER {boxNum + 1}</h1>
       <div className="grid grid-cols-8 gap-4">
-        {box[boxNum].map((singleBox, index) => (
-          <div key={index} className="w-8 h-16">
-            <button className="bg-gray-300 px-4 py-2 rounded-2xl">
-              {singleBox}
-            </button>
+        {box[boxNum].name.map((singleBox, index) => {
+          const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
+          const heading = <h1>Box number -</h1>
+          return (
+            <div key={index} className="w-8 h-16">
+              <button className={color}>
+                {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
-            <MathsButton
-              yesLabel="YES"
-              noLabel="NO"
-              onClick={(label) => handleClick(label, firstElement)}
-            />
-          </div>
-        ))}
+                {singleBox}
+              </button>
+
+              <MathsButton
+                yesLabel="YES"
+                noLabel="NO"
+                onClick={(label) => handleClick(label, firstElement)}
+              />
+            </div>
+          )
+        })}
 
         {count === 7 && (
           <div className="fixed flex flex-wrap justify-center bottom-20 inset-x-0 px-2">
@@ -85,3 +100,13 @@ const MainCode = () => {
 }
 
 export default MainCode
+// const MainCode = () => {
+//   const box = [
+//     { name: one, color: 'slate' },
+//     { name: two, color: 'gray' },
+//     { name: fourth, color: 'zinc' },
+//     { name: eighth, color: 'neutral' },
+//     { name: sixteenth, color: 'stone' },
+//     { name: thirtytwoth, color: 'red' },
+//     { name: sixtyforth, color: 'orange' },
+//   ]
