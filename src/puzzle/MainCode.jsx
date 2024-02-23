@@ -1,7 +1,9 @@
+import { useRef } from 'react'
 import React from 'react'
 import Button from '../components/Button.jsx'
 import MathsButton from './MathsButton.jsx'
 import { useState } from 'react'
+import Modal from './Modal.jsx'
 import {
   one,
   two,
@@ -22,7 +24,7 @@ const MainCode = () => {
     { name: thirtytwoth, color: 'blue' },
     { name: sixtyforth, color: 'cyan' },
   ]
-
+  const modal = useRef()
   const [boxNum, setBoxNum] = useState(0)
   const [countBox, setCountBox] = useState(0)
   const [count, setCount] = useState(0)
@@ -38,6 +40,10 @@ const MainCode = () => {
       if (count <= 7) {
         setCountBox(countBox + firstNum)
       } else setCountBox(0)
+
+      if (count === 6) {
+        modal.current.open()
+      }
     }
   }
 
@@ -55,58 +61,47 @@ const MainCode = () => {
   const firstElement = box[boxNum].name[0]
 
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="text-justify  font-bold">BOX NUMBER {boxNum + 1}</h1>
-      <div className="grid grid-cols-8 gap-4">
-        {box[boxNum].name.map((singleBox, index) => {
-          const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
-          const heading = <h1>Box number -</h1>
-          return (
-            <div key={index} className="w-8 h-16">
-              <button className={color}>
-                {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
+    <>
+      <div className="container mx-auto py-10">
+        <h1 className="text-justify  font-bold">BOX NUMBER {boxNum + 1}</h1>
+        <div className="grid grid-cols-8 gap-4">
+          {box[boxNum].name.map((singleBox, index) => {
+            const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
+            return (
+              <div key={index} className="w-8 h-16">
+                <button className={color}>
+                  {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
-                {singleBox}
-              </button>
+                  {singleBox}
+                </button>
 
-              <MathsButton
-                yesLabel="YES"
-                noLabel="NO"
-                onClick={(label) => handleClick(label, firstElement)}
-              />
+                <MathsButton
+                  yesLabel="YES"
+                  noLabel="NO"
+                  onClick={(label) => handleClick(label, firstElement)}
+                />
+              </div>
+            )
+          })}
+
+          <Modal ref={modal} onClose={handleReset}>
+            <div className="w-64 h-64 text-center">
+              <h1 className="font-bold font-serif text-center">{countBox}</h1>
             </div>
-          )
-        })}
+          </Modal>
 
-        {count === 7 && (
-          <div className="fixed flex flex-wrap justify-center bottom-20 inset-x-0 px-2">
-            <button className="outline-noe px-4 py-1 rounded-full shadow-lg ">
-              The number you imagined is {countBox}
+          <div className="fixed flex flex-wrap justify-center bottom-3 inset-x-0 px-2">
+            <button
+              className="outline-noe px-4 py-1 rounded-full shadow-lg text-white bg-purple-600"
+              onClick={handleReset}
+            >
+              RESET
             </button>
           </div>
-        )}
-
-        <div className="fixed flex flex-wrap justify-center bottom-3 inset-x-0 px-2">
-          <button
-            className="outline-noe px-4 py-1 rounded-full shadow-lg text-white bg-purple-600"
-            onClick={handleReset}
-          >
-            RESET
-          </button>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
 export default MainCode
-// const MainCode = () => {
-//   const box = [
-//     { name: one, color: 'slate' },
-//     { name: two, color: 'gray' },
-//     { name: fourth, color: 'zinc' },
-//     { name: eighth, color: 'neutral' },
-//     { name: sixteenth, color: 'stone' },
-//     { name: thirtytwoth, color: 'red' },
-//     { name: sixtyforth, color: 'orange' },
-//   ]

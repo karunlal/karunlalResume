@@ -26,7 +26,7 @@ const MainLayout = () => {
   return (
     <div className="flex">
       {/* Section 1: Navigation menu (left side) */}
-      <div className="w-1/4 p-4">
+      <div className="w-1/4 p-4 mt-40 ms-16">
         <ul className="space-y-8">
           {mainOptions.map((mainOption) => (
             <li
