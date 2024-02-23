@@ -68,7 +68,7 @@ const MainCode = () => {
             const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
             return (
               <div key={index} className="w-8 h-16">
-                <p className="text-5xl">
+                <p className="text-5xl font-serif">
                   {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
                   {singleBox}

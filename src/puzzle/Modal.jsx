@@ -21,7 +21,12 @@ const Modal = forwardRef(function Modal(
     >
       {children}
       <form method="dialog">
-        <button onClick={() => onClose()}>{buttonCaption}</button>
+        <button
+          onClick={() => onClose()}
+          className="absolute top-0 right-0 m-4 text-3xl text-blue-700"
+        >
+          {buttonCaption}
+        </button>
       </form>
     </dialog>,
     document.getElementById('modal-root')
