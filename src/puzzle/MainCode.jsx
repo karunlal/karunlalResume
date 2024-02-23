@@ -62,13 +62,15 @@ const MainCode = () => {
   return (
     <>
       <div className="container mx-auto py-10">
-        <h1 className="text-justify  font-bold">BOX NUMBER {boxNum + 1}</h1>
-        <div className="grid grid-cols-8 gap-4">
+        <h1 className="text-justify  font-bold text-center md:text-left">
+          BOX NUMBER {boxNum + 1}
+        </h1>
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
           {box[boxNum].name.map((singleBox, index) => {
             const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
             return (
               <div key={index} className="w-8 h-16">
-                <p className="text-5xl font-serif">
+                <p className="text-3xl md:text-5xl font-serif text-center md:text-left">
                   {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
                   {singleBox}
@@ -84,8 +86,8 @@ const MainCode = () => {
           })}
 
           <Modal ref={modal} onClose={handleReset} buttonCaption={'X'}>
-            <div className="flex justify-center w-64 h-64 text-center">
-              <h1 className=" font-bold text-7xl text-stone-500 my-20">
+            <div className="flex justify-center w-full h-screen md:w-64 md:h-64 text-center">
+              <h1 className=" font-bold text-5xl md:text-7xl text-stone-500 my-20">
                 {countBox}
               </h1>
             </div>
