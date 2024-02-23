@@ -84,9 +84,11 @@ const MainCode = () => {
             )
           })}
 
-          <Modal ref={modal} onClose={handleReset}>
-            <div className="w-64 h-64 text-center">
-              <h1 className="font-bold font-serif text-center">{countBox}</h1>
+          <Modal ref={modal} onClose={handleReset} buttonCaption={'X'}>
+            <div className="flex justify-center w-64 h-64 text-center">
+              <h1 className=" font-bold text-7xl text-stone-500 my-20">
+                {countBox}
+              </h1>
             </div>
           </Modal>
 
