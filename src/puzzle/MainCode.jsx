@@ -34,16 +34,15 @@ const MainCode = () => {
     console.log(buttonLabel, firstNum)
 
     if (boxNum < 6) setBoxNum(boxNum + 1)
+    if (count === 6) {
+      modal.current.open()
+    }
 
     if (buttonLabel === 'YES') {
       // Check if firstNum is less than 64 before increasing countBox
       if (count <= 7) {
         setCountBox(countBox + firstNum)
       } else setCountBox(0)
-
-      if (count === 6) {
-        modal.current.open()
-      }
     }
   }
 
@@ -69,11 +68,11 @@ const MainCode = () => {
             const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
             return (
               <div key={index} className="w-8 h-16">
-                <button className={color}>
+                <p className="text-5xl">
                   {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
                   {singleBox}
-                </button>
+                </p>
 
                 <MathsButton
                   yesLabel="YES"
