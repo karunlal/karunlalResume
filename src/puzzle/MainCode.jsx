@@ -70,11 +70,11 @@ const MainCode = () => {
             const color = `bg-${box[boxNum].color}-400 px-4 py-2 rounded-2xl`
             return (
               <div key={index} className="w-8 h-16">
-                <p className="text-3xl md:text-5xl font-serif text-center md:text-left">
+                <form className="text-3xl md:text-5xl font-serif text-center md:text-left">
                   {/* "bg-slate-300 px-4 py-2 rounded-2xl" */}
 
                   {singleBox}
-                </p>
+                </form>
 
                 <MathsButton
                   yesLabel="YES"

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = ({ children }) => {
+const Button = ({ children, ...props }) => {
   return (
     <button
       className="relative   border-gray-400
@@ -8,6 +8,7 @@ const Button = ({ children }) => {
      font-bold py-2 px-4 
      rounded transition duration-300 
      ease-in-out hover:scale-110"
+      {...props}
     >
       <span
         className="absolute inset-0 

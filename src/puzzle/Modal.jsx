@@ -1,5 +1,6 @@
 import { createPortal } from 'react-dom'
 import { forwardRef, useImperativeHandle, useRef } from 'react'
+import Button from '../components/Button'
 
 const Modal = forwardRef(function Modal(
   { children, onClose, buttonCaption },
@@ -22,7 +23,7 @@ const Modal = forwardRef(function Modal(
       {children}
       <form method="dialog">
         <button
-          onClick={() => onClose()}
+          onClick={onClose}
           className="absolute top-0 right-0 m-4 text-3xl text-blue-700"
         >
           {buttonCaption}
